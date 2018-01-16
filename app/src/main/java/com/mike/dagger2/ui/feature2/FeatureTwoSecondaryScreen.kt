@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.mike.dagger2.R
-import com.mike.dagger2.ui.App
 import com.mike.dagger2.utils.FeatureTwoSecondaryScreenUtils
 import com.mike.dagger2.utils.FeatureTwoUtils
 import com.mike.dagger2.utils.RestUtils
@@ -28,7 +27,7 @@ class FeatureTwoSecondaryScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.feature2_activity_secondary)
-        App.featureTwoSecondaryScreenComponent.inject(this)
+        //App.featureTwoSecondaryScreenComponent.inject(this)
 
         val textView = findViewById<TextView>(R.id.text)
         textView.text = getDisplayString()

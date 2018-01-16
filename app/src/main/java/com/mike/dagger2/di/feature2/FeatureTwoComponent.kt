@@ -1,22 +1,16 @@
 package com.mike.dagger2.di.feature1
 
-import android.content.Context
-import com.mike.dagger2.di.AppComponent
+import com.mike.dagger2.di.feature2.FeatureTwoMainScreenModule
 import com.mike.dagger2.di.feature2.FeatureTwoModule
-import com.mike.dagger2.utils.FeatureTwoUtils
-import com.mike.dagger2.utils.RestUtils
-import com.mike.dagger2.utils.StringUtils
-import dagger.Component
+import com.mike.dagger2.di.feature2.FeatureTwoSecondaryScreenModule
+import dagger.Subcomponent
 
 /**
  *
  */
-@Component(dependencies = [(AppComponent::class)],modules = [(FeatureTwoModule::class)])
+@Subcomponent(modules = [(FeatureTwoModule::class)])
 @FeatureTwoScope
 interface FeatureTwoComponent {
-    fun getAppContext() : Context
-    fun getRestUtils(): RestUtils
-    fun getStringUtils(): StringUtils
-
-    fun getFeatureTwoUtils() : FeatureTwoUtils
+    fun plusFeatureTwoMainScreenComponent(featureTwoMainScreenModule: FeatureTwoMainScreenModule) : FeatureTwoMainScreenComponent
+    fun plusFeatureTwoSecondaryScreenComponent(featureTwoSecondaryScreenModule: FeatureTwoSecondaryScreenModule) : FeatureTwoSecondaryScreenComponent
 }

@@ -5,12 +5,13 @@ import com.mike.dagger2.ui.feature1.FeatureOneSecondaryScreen
 import com.mike.dagger2.ui.feature2.FeatureTwoSecondaryScreen
 import com.mike.dagger2.utils.FeatureOneUtils
 import dagger.Component
+import dagger.Subcomponent
 import java.net.ConnectException
 
 /**
  *
  */
-@Component(dependencies = [(FeatureTwoComponent::class)],modules = [(FeatureTwoSecondaryScreenModule::class)])
+@Subcomponent(modules = [(FeatureTwoSecondaryScreenModule::class)])
 @FeatureTwoSecondaryScreenScope
 interface FeatureTwoSecondaryScreenComponent {
     fun inject(activity: FeatureTwoSecondaryScreen)

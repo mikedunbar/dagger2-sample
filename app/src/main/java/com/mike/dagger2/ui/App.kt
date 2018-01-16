@@ -5,12 +5,6 @@ import com.mike.dagger2.di.AppComponent
 import com.mike.dagger2.di.AppModule
 import com.mike.dagger2.di.DaggerAppComponent
 import com.mike.dagger2.di.UtilsModule
-import com.mike.dagger2.di.feature1.DaggerFeatureOneComponent
-import com.mike.dagger2.di.feature1.DaggerFeatureOneMainScreenComponent
-import com.mike.dagger2.di.feature1.DaggerFeatureOneSecondaryScreenComponent
-import com.mike.dagger2.di.feature1.DaggerFeatureTwoComponent
-import com.mike.dagger2.di.feature1.DaggerFeatureTwoMainScreenComponent
-import com.mike.dagger2.di.feature1.DaggerFeatureTwoSecondaryScreenComponent
 import com.mike.dagger2.di.feature1.FeatureOneComponent
 import com.mike.dagger2.di.feature1.FeatureOneMainScreenComponent
 import com.mike.dagger2.di.feature1.FeatureOneMainScreenModule
@@ -35,10 +29,12 @@ class App : Application() {
         lateinit var featureTwoComponent: FeatureTwoComponent
         lateinit var featureTwoMainScreenComponent: FeatureTwoMainScreenComponent
         lateinit var featureTwoSecondaryScreenComponent: FeatureTwoSecondaryScreenComponent
+
     }
 
     override fun onCreate() {
         super.onCreate()
+
         appComponent = buildAppComponent()
 
         featureOneComponent = buildFeatureOneComponent()
@@ -58,45 +54,27 @@ class App : Application() {
     }
 
     private fun buildFeatureOneComponent(): FeatureOneComponent {
-        return DaggerFeatureOneComponent.builder()
-                .appComponent(appComponent)
-                .featureOneModule(FeatureOneModule("featureOne"))
-                .build()
+        return appComponent.plusFeatureOneComponent(FeatureOneModule("featureOne"))
     }
 
     private fun buildFeatureOneMainScreenComponent(): FeatureOneMainScreenComponent {
-        return DaggerFeatureOneMainScreenComponent.builder()
-                .featureOneComponent(featureOneComponent)
-                .featureOneMainScreenModule(FeatureOneMainScreenModule("featureOneMain"))
-                .build()
+        return featureOneComponent.plusFeatureOneMainScreenComponent(FeatureOneMainScreenModule("featureOneMain"))
     }
 
     private fun buildFeatureOneSecondaryScreenComponent(): FeatureOneSecondaryScreenComponent {
-        return DaggerFeatureOneSecondaryScreenComponent.builder()
-                .featureOneComponent(featureOneComponent)
-                .featureOneSecondaryScreenModule(FeatureOneSecondaryScreenModule("featureOneSecondary"))
-                .build()
+        return featureOneComponent.plusFeatureOneSecondaryScreenComponent(FeatureOneSecondaryScreenModule("featureOneSecondary"))
     }
 
     private fun buildFeatureTwoComponent(): FeatureTwoComponent {
-        return DaggerFeatureTwoComponent.builder()
-                .appComponent(appComponent)
-                .featureTwoModule(FeatureTwoModule("featureTwo"))
-                .build()
+        return appComponent.plusFeatureTwoComponent(FeatureTwoModule("featureTwo"))
     }
 
     private fun buildFeatureTwoMainScreenComponent(): FeatureTwoMainScreenComponent {
-        return DaggerFeatureTwoMainScreenComponent.builder()
-                .featureTwoComponent(featureTwoComponent)
-                .featureTwoMainScreenModule(FeatureTwoMainScreenModule("featureTwoMain"))
-                .build()
+        return featureTwoComponent.plusFeatureTwoMainScreenComponent(FeatureTwoMainScreenModule("featureTwoMain"))
     }
 
     private fun buildFeatureTwoSecondaryScreenComponent(): FeatureTwoSecondaryScreenComponent {
-        return DaggerFeatureTwoSecondaryScreenComponent.builder()
-                .featureTwoComponent(featureTwoComponent)
-                .featureTwoSecondaryScreenModule(FeatureTwoSecondaryScreenModule("featureTwoSecondary"))
-                .build()
+        return featureTwoComponent.plusFeatureTwoSecondaryScreenComponent(FeatureTwoSecondaryScreenModule("featureTwoSecondary"))
     }
 
 }
