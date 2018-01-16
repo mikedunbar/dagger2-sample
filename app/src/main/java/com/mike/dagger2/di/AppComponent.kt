@@ -14,6 +14,5 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
     fun plusFeatureOneComponent(featureOneModule: FeatureOneModule) : FeatureOneComponent
-
     fun plusFeatureTwoComponent(featureTwoModule: FeatureTwoModule) : FeatureTwoComponent
 }
