@@ -20,7 +20,8 @@ The *master* branch currently reflects subcomponents.
 
 ## Asynchronous Injection
 Based on [Async Injection in Dagger 2 with RxJava](http://frogermcs.github.io/async-injection-in-dagger-2-with-rxjava/) 
-and [Dependency injection with Dagger 2 — Producers](https://medium.com/@froger_mcs/dependency-injection-with-dagger-2-producers-c424ddc60ba3) by [Mirek Stanek]
+and [Dependency injection with Dagger 2 — Producers](https://medium.com/@froger_mcs/dependency-injection-with-dagger-2-producers-c424ddc60ba3) 
+by [Mirek Stanek](https://mirekstanek.online/)
 
 Contained in the *master* branch
 
