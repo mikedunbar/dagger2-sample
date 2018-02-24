@@ -1,8 +1,12 @@
 package com.mike.dagger2.ui
 
 import android.app.Application
+import com.mike.dagger2.di.AppAsyncDaggerComponent
+import com.mike.dagger2.di.AppAsyncProductionComponent
 import com.mike.dagger2.di.AppComponent
 import com.mike.dagger2.di.AppModule
+import com.mike.dagger2.di.DaggerAppAsyncDaggerComponent
+import com.mike.dagger2.di.DaggerAppAsyncProductionComponent
 import com.mike.dagger2.di.DaggerAppComponent
 import com.mike.dagger2.di.UtilsModule
 import com.mike.dagger2.di.feature1.FeatureOneComponent
@@ -21,6 +25,8 @@ import com.mike.dagger2.di.feature2.FeatureTwoSecondaryScreenModule
 class App : Application() {
     companion object {
         lateinit var appComponent: AppComponent
+        lateinit var appAsyncProductionComponent: AppAsyncProductionComponent
+        lateinit var appAsyncDaggerComponent: AppAsyncDaggerComponent
 
         lateinit var featureOneComponent: FeatureOneComponent
         lateinit var featureOneMainScreenComponent: FeatureOneMainScreenComponent
@@ -36,6 +42,8 @@ class App : Application() {
         super.onCreate()
 
         appComponent = buildAppComponent()
+        appAsyncDaggerComponent = buildAppAsynchDaggerComponent()
+        appAsyncProductionComponent = buildAppAsyncProductionComponent()
 
         featureOneComponent = buildFeatureOneComponent()
         featureOneMainScreenComponent = buildFeatureOneMainScreenComponent()
@@ -51,6 +59,14 @@ class App : Application() {
                 .appModule(AppModule(this))
                 .utilsModule(UtilsModule("application"))
                 .build()
+    }
+
+    private fun buildAppAsynchDaggerComponent(): AppAsyncDaggerComponent {
+        return DaggerAppAsyncDaggerComponent.create()
+    }
+
+    private fun buildAppAsyncProductionComponent(): AppAsyncProductionComponent {
+        return DaggerAppAsyncProductionComponent.create();
     }
 
     private fun buildFeatureOneComponent(): FeatureOneComponent {

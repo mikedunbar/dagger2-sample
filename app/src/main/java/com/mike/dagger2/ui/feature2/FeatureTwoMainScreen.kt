@@ -33,7 +33,7 @@ class FeatureTwoMainScreen : AppCompatActivity() {
         setContentView(R.layout.feature2_activity_main)
         App.featureTwoMainScreenComponent.inject(this)
 
-        val textView = findViewById<TextView>(R.id.text)
+        val textView = findViewById<TextView>(R.id.producerText)
         textView.text = getDisplayString()
 
         val secondaryScreenButton = findViewById<Button>(R.id.secondary_screen_button)

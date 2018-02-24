@@ -29,7 +29,7 @@ class FeatureTwoSecondaryScreen : AppCompatActivity() {
         setContentView(R.layout.feature2_activity_secondary)
         //App.featureTwoSecondaryScreenComponent.inject(this)
 
-        val textView = findViewById<TextView>(R.id.text)
+        val textView = findViewById<TextView>(R.id.producerText)
         textView.text = getDisplayString()
     }
 

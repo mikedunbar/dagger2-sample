@@ -11,20 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.feature1.FeatureOneMainScreen">
+        <activity android:name=".ui.HomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.feature1.FeatureOneSecondaryScreen">
-        </activity>
 
-        <activity android:name=".ui.feature2.FeatureTwoMainScreen">
-        </activity>
-        <activity android:name=".ui.feature2.FeatureTwoSecondaryScreen">
-        </activity>
+        <activity android:name=".ui.feature1.FeatureOneMainScreen"/>
+        <activity android:name=".ui.feature1.FeatureOneSecondaryScreen"/>
+        <activity android:name=".ui.feature2.FeatureTwoMainScreen"/>
+        <activity android:name=".ui.feature2.FeatureTwoSecondaryScreen"/>
     </application>
 
 </manifest>
